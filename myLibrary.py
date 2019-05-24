@@ -1,22 +1,19 @@
 import numpy
 import json
 
-class printers:
-    def __init__(self):
-        pass
-    def printm(matrix):     #print matrixes in numpy format
-        try:
-            if type(matrix[0]) == list:
-                for row in matrix:
-                    print(numpy.array(row))
-            elif type(matrix) == list:
-                print(numpy.array(matrix))
-        except Exception:
-            if type(matrix) == list:
-                print(numpy.array(matrix))
-            else:
-                print(matrix)
-        print("")
+def printm(matrix):     #print matrixes in numpy format
+    try:
+        if type(matrix[0]) == list:
+            for row in matrix:
+                print(numpy.array(row))
+        elif type(matrix) == list:
+            print(numpy.array(matrix))
+    except Exception:
+        if type(matrix) == list:
+            print(numpy.array(matrix))
+        else:
+            print(matrix)
+    print("")
 
 def printv(a="", b="", c="", d="", e="", f="", g="", h="", i="", j=""):     #kan meer dan 2 dingen printen
     print("info: ")
@@ -47,5 +44,9 @@ def openf(filename,mode="r"):
         data = file.read()
     return data
 
+def typeList(list,type):
+    for i in range(len(list)):
+        list[i]=type(i)
+    return list
 
-data=openjs("text.json")
+
