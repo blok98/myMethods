@@ -24,15 +24,18 @@ def printv(a="", b="", c="", d="", e="", f="", g="", h="", i="", j=""):     #kan
     print(i, j, end=" ")
     print("")
 
-def printr(data,index=None,limiter=25):            #print elk element uit een for loop
+def printr(data,layers=1,index=None,limiter=25):            #print elk element uit een for loop
+    if layers <= 0:
+        return True
     for i in data:
-        if index!=None:
+        if index != None:
             try:
                 print(i[index])
             except Exception as e:
                 print(e)
         else:
             print(i)
+        printr(i, layers - 1, index, limiter)
 
 def openjs(filename,mode="r"):
     with open(filename,mode) as json_file:
@@ -46,7 +49,6 @@ def openf(filename,mode="r"):
 
 def typeList(list,type):
     for i in range(len(list)):
-        list[i]=type(i)
+        list[i]=type(list[i])
     return list
-
 
